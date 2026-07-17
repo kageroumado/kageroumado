@@ -31,7 +31,7 @@ small remedies, free:
 
 and the rest of the shelf:
 
-- **[Refrax](https://github.com/kageroumado/refrax-browser)** — a maximalist WebKit browser, built for one person and open-sourced
+- **[Refrax](https://github.com/kageroumado/refrax-browser)** — a WebKit browser written from scratch: maximalist tab management, features no other browser has, and full agentic control — open source
 - **[Harmaline](https://github.com/kageroumado/harmaline)** — fixes the black screen after a Screen Sharing high-performance disconnect
 - **[Carbidopa](https://github.com/kageroumado/carbidopa)** — a menu-bar proxy that serves GitHub Copilot as Anthropic & OpenAI APIs, for Claude Code
 - *· [everything, all at once](https://github.com/kageroumado?tab=repositories)*
