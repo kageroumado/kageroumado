@@ -24,14 +24,15 @@ small remedies, free:
 
 - **[Phosphene](https://kagerou.glass/phosphene/)** — animated wallpapers macOS reserved for itself, pried back open
 - **[Adrafinil](https://kagerou.glass/adrafinil/)** — 新薬 ♡ keeps your mac awake only while the AI agents are still working — a eugeroic, not a stimulant
+- **[Sevoflurane](https://kagerou.glass/sevoflurane/)** — Steam for macOS as a real Mac app: the Windows client runs hidden in a Wine bottle, and everything you see and touch is native — open source
+- **[Refrax](https://kagerou.glass/refrax/)** — a WebKit browser written from scratch: maximalist tab management, features no other browser has, and full agentic control — open source
 - **[Piru](https://kagerou.glass/piru/)** — an iOS dose tracker that draws the curve of what's still in your blood, and warns before you stack
-- **[Rilmazafone](https://github.com/kageroumado/rilmazafone)** — designs and builds your DMG; puts the last chore of shipping a mac app to sleep
-- **[Coluracetam](https://apps.apple.com/us/app/coluracetam-markdown-reader/id6788680916)** — a markdown reader that renders the moment you press space — in the app, and in Finder's Quick Look · on the Mac App Store
-- **[Dantrolene](https://github.com/kageroumado/dantrolene)** — keeps your mac unlocked while you're home on your own WiFi
 
 and the rest of the shelf:
 
-- **[Refrax](https://github.com/kageroumado/refrax-browser)** — a WebKit browser written from scratch: maximalist tab management, features no other browser has, and full agentic control — open source
+- **[Rilmazafone](https://github.com/kageroumado/rilmazafone)** — designs and builds your DMG; puts the last chore of shipping a mac app to sleep
+- **[Coluracetam](https://apps.apple.com/us/app/coluracetam-markdown-reader/id6788680916)** — a markdown reader that renders the moment you press space — in the app, and in Finder's Quick Look · on the Mac App Store
+- **[Dantrolene](https://github.com/kageroumado/dantrolene)** — keeps your mac unlocked while you're home on your own WiFi
 - **[Harmaline](https://github.com/kageroumado/harmaline)** — fixes the black screen after a Screen Sharing high-performance disconnect
 - **[Carbidopa](https://github.com/kageroumado/carbidopa)** — a menu-bar proxy that serves GitHub Copilot as Anthropic & OpenAI APIs, for Claude Code
 - *· [everything, all at once](https://github.com/kageroumado?tab=repositories)*
