@@ -35,6 +35,7 @@ and the rest of the shelf:
 - **[Dantrolene](https://github.com/kageroumado/dantrolene)** — keeps your mac unlocked while you're home on your own WiFi
 - **[Harmaline](https://github.com/kageroumado/harmaline)** — fixes the black screen after a Screen Sharing high-performance disconnect
 - **[Carbidopa](https://github.com/kageroumado/carbidopa)** — a menu-bar proxy that serves GitHub Copilot as Anthropic & OpenAI APIs, for Claude Code
+- **[Rocuronium](https://kagerou.glass/rocuronium/)** — lets an AI agent drive your mac without taking your cursor, checks that every click landed, and shows you what it's doing — open source
 - *· [everything, all at once](https://github.com/kageroumado?tab=repositories)*
 
 <div align="center">
