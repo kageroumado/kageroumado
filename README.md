@@ -26,7 +26,7 @@ small remedies, free:
 - **[Adrafinil](https://kagerou.glass/adrafinil/)** — 新薬 ♡ keeps your mac awake only while the AI agents are still working — a eugeroic, not a stimulant
 - **[Sevoflurane](https://kagerou.glass/sevoflurane/)** — Steam for macOS as a real Mac app: the Windows client runs hidden in a Wine bottle, and everything you see and touch is native — open source
 - **[Refrax](https://kagerou.glass/refrax/)** — a WebKit browser written from scratch: maximalist tab management, features no other browser has, and full agentic control — open source
-- **[Piru](https://kagerou.glass/piru/)** — an iOS dose tracker that draws the curve of what's still in your blood, and warns before you stack
+- **[Piru](https://kagerou.glass/piru/)** — an iOS and Android dose tracker that draws the curve of what's still in your blood, and warns before you stack
 
 and the rest of the shelf:
 
