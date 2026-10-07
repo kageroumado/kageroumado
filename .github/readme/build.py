@@ -56,7 +56,8 @@ class Face:
     def data_uri(self, text):
         options = subset.Options()
         options.flavor = "woff2"
-        sub = TTFont(self.path)
+        # recalcTimestamp=False keeps head.modified fixed, so an unchanged text rebuilds byte-identical.
+        sub = TTFont(self.path, recalcTimestamp=False)
         subsetter = subset.Subsetter(options)
         subsetter.populate(text="".join(sorted(set(text + " "))))
         subsetter.subset(sub)
