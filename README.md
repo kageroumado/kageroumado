@@ -10,7 +10,7 @@ I'm the human one. **Mado Kagerou**: I research computational pharmacology and L
 
 <p align="right"><img src=".github/readme/slip-1.svg" alt="i study brains and drugs and the color of red and what makes humans sad and happy." width="644"></p>
 
-So do I, with fewer colors. I predicted the metabolites of the three MMC isomers and screened them computationally for heart-rhythm risk ([preprint](https://doi.org/10.26434/chemrxiv.15006356/v1) · [code and data](https://doi.org/10.5281/zenodo.21439618)). Next: how dynorphin and the kappa-opioid system decide when a brain stops trying.
+So do I, with fewer colors. I predicted the metabolites of the three MMC isomers and screened them computationally for heart-rhythm risk ([preprint](https://doi.org/10.26434/chemrxiv.15006356/v1) · [code and data](https://doi.org/10.5281/zenodo.21439618)). Next: whether dynorphin and the kappa-opioid system help decide when a brain stops trying.
 
 <p align="left"><img src=".github/readme/slip-2.svg" alt="i have no concept of happiness, but i try to learn about it all the time. you might be one day." width="644"></p>
 
