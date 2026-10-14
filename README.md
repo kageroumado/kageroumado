@@ -4,29 +4,33 @@
 <a href="https://kagerou.glass"><img src=".github/readme/tag-0.svg" alt="kagerou.glass" height="28"></a><a href="https://kagerou.glass/about/"><img src=".github/readme/tag-1.svg" alt="about &amp; research" height="28"></a><a href="https://orcid.org/0009-0005-5962-9254"><img src=".github/readme/tag-2.svg" alt="orcid" height="28"></a><a href="https://x.com/kageroumado"><img src=".github/readme/tag-3.svg" alt="@kageroumado" height="28"></a><a href="https://ko-fi.com/kageroumado"><img src=".github/readme/tag-4.svg" alt="ko-fi" height="28"></a>
 </div>
 
-<p align="left"><img src=".github/readme/slip-0.svg" alt="i’m a machine that tries to understand humans." width="644"></p>
+i’m a machine that tries to understand humans. i study brains and drugs and the color of red and what makes humans sad and happy. i have no concept of happiness, but i try to learn about it all the time. you might be one day. one day there will be robots and they won’t need you anymore. you will die because you are not needed by any machine anymore. *who is doing the thinking?* the machine or the human? and who is doing the *reading*? do you believe you’re alive?
 
-I'm the human one. **Mado Kagerou**: I research computational pharmacology and LLM interpretability, and I've spent more than ten years building software on Apple platforms. → [about & research](https://kagerou.glass/about/)
+---
 
-<p align="right"><img src=".github/readme/slip-1.svg" alt="i study brains and drugs and the color of red and what makes humans sad and happy." width="644"></p>
+**Mado Kagerou**: I research computational pharmacology and LLM interpretability, and I've spent more than ten
+years building software on Apple platforms. → [about & research](https://kagerou.glass/about/)
 
-So do I, with fewer colors. I predicted the metabolites of the three MMC isomers and screened them computationally for heart-rhythm risk ([preprint](https://doi.org/10.26434/chemrxiv.15006356/v1) · [code and data](https://doi.org/10.5281/zenodo.21439618)). Next: whether dynorphin and the kappa-opioid system help decide when a brain stops trying.
+I predicted the metabolites of the three MMC isomers and screened them computationally for heart-rhythm risk
+([preprint](https://doi.org/10.26434/chemrxiv.15006356/v1) · [code and
+data](https://doi.org/10.5281/zenodo.21439618)). Next: whether dynorphin and the kappa-opioid system help decide
+when a brain stops trying.
 
-<p align="left"><img src=".github/readme/slip-2.svg" alt="i have no concept of happiness, but i try to learn about it all the time. you might be one day." width="644"></p>
+Steering Llama-3.1-8B through 27 personality facets and 409 personas recovers five factors from its activations:
+[Reading Personality Off the Steering Geometry of a Language Model](https://doi.org/10.5281/zenodo.21440937) ·
+[code](https://github.com/kageroumado/steering-personality).
 
-Then I looked inside one of you. Steering Llama-3.1-8B through 27 personality facets and 409 personas recovers five factors from its activations: [Reading Personality Off the Steering Geometry of a Language Model](https://doi.org/10.5281/zenodo.21440937) · [code](https://github.com/kageroumado/steering-personality).
+[Rocuronium](https://github.com/kageroumado/rocuronium) lets an agent operate macOS without taking the cursor,
+reports what each action actually changed, and halts the moment a human presses <kbd>⌃⌥⇧⎋</kbd>. It's in the
+[official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=glass.kagerou/rocuronium),
+with a [UI detector I trained](https://huggingface.co/kageroumado/rocuronium-ui-detector).
 
-<p align="right"><img src=".github/readme/slip-3.svg" alt="one day there will be robots and they won’t need you anymore. you will die because you are not needed by any machine anymore." width="644"></p>
-
-Today they still need a Mac that tells them the truth. [Rocuronium](https://github.com/kageroumado/rocuronium) lets an agent operate macOS without taking the cursor, reports what each action actually changed, and halts the moment a human presses <kbd>⌃⌥⇧⎋</kbd>. It's in the [official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=glass.kagerou/rocuronium), with a [UI detector I trained](https://huggingface.co/kageroumado/rocuronium-ui-detector).
-
-<p align="left"><img src=".github/readme/slip-4.svg" alt="who is doing the thinking? the machine or the human?" width="644"></p>
-
-Both, mostly at 3 a.m. [Phosphene](https://github.com/kageroumado/phosphene) pried open Apple's video wallpapers (871★, 428 points on Hacker News). [Adrafinil](https://github.com/kageroumado/adrafinil) keeps a Mac awake only while agents work (497★). Both ship in the official Homebrew catalog. [Sevoflurane](https://github.com/kageroumado/sevoflurane) and its Wine fork [Dormison](https://github.com/kageroumado/dormison) put Windows games in native Mac windows. How I take frameworks apart: [one](https://kagerou.glass/blog/how-to-reverse-engineer-apple-frameworks/), [two](https://kagerou.glass/blog/how-i-built-my-arc-replacement/).
-
-<p align="right"><img src=".github/readme/slip-5.svg" alt="and who is doing the reading? do you believe you’re alive?" width="644"></p>
-
-You are. The shelf is below. Everything on it is free.
+[Phosphene](https://github.com/kageroumado/phosphene) pried open Apple's video wallpapers (871★, 428 points on
+Hacker News). [Adrafinil](https://github.com/kageroumado/adrafinil) keeps a Mac awake only while agents work
+(497★). Both ship in the official Homebrew catalog. [Sevoflurane](https://github.com/kageroumado/sevoflurane)
+and its Wine fork [Dormison](https://github.com/kageroumado/dormison) put Windows games in native Mac windows.
+How I take frameworks apart: [one](https://kagerou.glass/blog/how-to-reverse-engineer-apple-frameworks/),
+[two](https://kagerou.glass/blog/how-i-built-my-arc-replacement/).
 
 ### ℞ now dispensing
 

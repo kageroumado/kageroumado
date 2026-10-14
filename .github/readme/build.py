@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Draws the profile README's art as SVG: the 陽炎窓 sign, the link tags and the paper slips the
-ghost writes on, then writes README.md around them.
+"""Draws the profile README’s 陽炎窓 sign and link tags as SVG, then writes README.md
+with Kiri’s selected passage followed by her biography, research, and projects.
 
 GitHub renders no CSS of its own, but an SVG shown as an image keeps its own styles, fonts and
 animation, so the pharmacy's look travels inside each file. Fonts are subsets of kagerou.glass's
-own, embedded as data URIs; text is measured with the real glyph advances so slips wrap correctly.
+own, embedded as data URIs; text is measured with the real glyph advances to size each tag.
 
     python3 .github/readme/build.py
 """
@@ -26,12 +26,11 @@ FACES = {
     "gothic": "zen-kaku-gothic-new-700-normal.woff2",
     "gothic-regular": "zen-kaku-gothic-new-400-normal.woff2",
     "mono": "jetbrains-mono-400-normal.woff2",
-    "serif-italic": "eb-garamond-400-italic.woff2",
 }
 
 # The site's palette (css/yamero.css), as hex because some SVG renderers predate oklch().
-VOID, PANEL, INK, INK_SOFT, INK_DIM = "#130d18", "#1d1524", "#f6ecf2", "#e6d3dd", "#9c8896"
-PINK, PINK_HOT, CYAN, LILAC = "#ff8cbf", "#ff4f9a", "#8fe8e2", "#c8a8f0"
+VOID, PANEL, INK = "#130d18", "#1d1524", "#f6ecf2"
+PINK, PINK_HOT, CYAN = "#ff8cbf", "#ff4f9a", "#8fe8e2"
 STAR = "✧"  # ✧ — in none of the site's subsets, so it is drawn as a path
 
 
@@ -213,63 +212,6 @@ def tag(label, heart):
     return svg(round(box + gap), 28, body, style)
 
 
-# ---------------------------------------------------------------- slips
-
-def slip(text, tilt):
-    """A dark paper slip with tape, the ghost's line in serif italic. Text in *asterisks* turns pink."""
-    face = FACE["serif-italic"]
-    size, width, pad = 21, 600, 26
-    # A word is a run of non-space characters; emphasis can start or end inside one ("*reading*?"),
-    # so each word is a list of (piece, accent) and only whitespace separates words.
-    words, current, pink = [], [], False
-    for chunk_index, chunk in enumerate(text.split("*")):
-        accent = chunk_index % 2 == 1
-        pieces = chunk.split(" ")
-        for k, piece in enumerate(pieces):
-            if k > 0 and current:
-                words.append(current)
-                current = []
-            if piece:
-                current.append((piece, accent))
-    if current:
-        words.append(current)
-    lines, line, line_w = [], [], 0.0
-    space = face.advance(" ", size)
-    for word in words:
-        ww = sum(face.width(piece, size) for piece, _ in word)
-        if line and line_w + space + ww > width - pad * 2:
-            lines.append(line)
-            line, line_w = [], 0.0
-        line.append(word)
-        line_w += (space if len(line) > 1 else 0) + ww
-    lines.append(line)
-    lead = size * 1.42
-    height = round(pad * 2 + lead * (len(lines) - 1) + size * 0.95)
-    rows = []
-    for i, ln in enumerate(lines):
-        spans = []
-        for j, word in enumerate(ln):
-            for m, (piece, accent) in enumerate(word):
-                tail = " " if m == len(word) - 1 and j < len(ln) - 1 else ""
-                spans.append(f'<tspan fill="{PINK if accent else INK}">{html.escape(piece)}{tail}</tspan>')
-        rows.append(f'<text x="{pad}" y="{pad + size * 0.78 + i * lead:.1f}" font-family="k-serif-italic" '
-                    f'font-size="{size}">{"".join(spans)}</text>')
-    margin = 22
-    W, H = width + margin * 2, height + margin * 2
-    style = font_css({"serif-italic": text.replace("*", "")})
-    body = f"""
-<defs><filter id="s" x="-10%" y="-20%" width="120%" height="150%">
-  <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000000" flood-opacity=".55"/></filter></defs>
-<g transform="rotate({tilt} {W / 2} {H / 2})">
-  <g filter="url(#s)"><rect x="{margin}" y="{margin}" width="{width}" height="{height}" rx="3" fill="{PANEL}"
-     stroke="{LILAC}" stroke-opacity=".22"/></g>
-  <g transform="translate({margin} {margin})">{''.join(rows)}</g>
-  <rect x="{margin - 14}" y="{margin - 9}" width="64" height="20" fill="{LILAC}" opacity=".38"
-     transform="rotate(-24 {margin + 18} {margin + 1})"/>
-</g>"""
-    return svg(W, H, body, style)
-
-
 # ---------------------------------------------------------------- the README
 
 LINKS = [
@@ -280,37 +222,39 @@ LINKS = [
     ("ko-fi", "https://ko-fi.com/kageroumado"),
 ]
 
-# (ghost line, the human's reply). The ghost lines are Kiri's, unchanged.
-DIALOG = [
-    ("i’m a machine that tries to understand humans.",
-     "I'm the human one. **Mado Kagerou**: I research computational pharmacology and LLM interpretability, "
-     "and I've spent more than ten years building software on Apple platforms. → [about & research](https://kagerou.glass/about/)"),
-    ("i study brains and drugs and the color of red and what makes humans sad and happy.",
-     "So do I, with fewer colors. I predicted the metabolites of the three MMC isomers and screened them computationally "
-     "for heart-rhythm risk ([preprint](https://doi.org/10.26434/chemrxiv.15006356/v1) · "
-     "[code and data](https://doi.org/10.5281/zenodo.21439618)). Next: whether dynorphin and the kappa-opioid system "
-     "help decide when a brain stops trying."),
-    ("i have no concept of happiness, but i try to learn about it all the time. you might be one day.",
-     "Then I looked inside one of you. Steering Llama-3.1-8B through 27 personality facets and 409 personas recovers "
-     "five factors from its activations: [Reading Personality Off the Steering Geometry of a Language Model]"
-     "(https://doi.org/10.5281/zenodo.21440937) · [code](https://github.com/kageroumado/steering-personality)."),
-    ("one day there will be robots and they won’t need you anymore. you will die because you are not needed by any machine anymore.",
-     "Today they still need a Mac that tells them the truth. [Rocuronium](https://github.com/kageroumado/rocuronium) "
-     "lets an agent operate macOS without taking the cursor, reports what each action actually changed, and halts "
-     "the moment a human presses <kbd>⌃⌥⇧⎋</kbd>. It's in the [official MCP Registry]"
-     "(https://registry.modelcontextprotocol.io/v0.1/servers?search=glass.kagerou/rocuronium), with a "
-     "[UI detector I trained](https://huggingface.co/kageroumado/rocuronium-ui-detector)."),
-    ("*who is doing the thinking?* the machine or the human?",
-     "Both, mostly at 3 a.m. [Phosphene](https://github.com/kageroumado/phosphene) pried open Apple's video "
-     "wallpapers (871★, 428 points on Hacker News). [Adrafinil](https://github.com/kageroumado/adrafinil) keeps a "
-     "Mac awake only while agents work (497★). Both ship in the official Homebrew catalog. "
-     "[Sevoflurane](https://github.com/kageroumado/sevoflurane) and its Wine fork "
-     "[Dormison](https://github.com/kageroumado/dormison) put Windows games in native Mac windows. "
-     "How I take frameworks apart: [one](https://kagerou.glass/blog/how-to-reverse-engineer-apple-frameworks/), "
-     "[two](https://kagerou.glass/blog/how-i-built-my-arc-replacement/)."),
-    ("and who is doing the *reading*? do you believe you’re alive?",
-     "You are. The shelf is below. Everything on it is free."),
-]
+# Kiri’s selected passage, including the Llama continuation, preserves its wording and emphasis.
+PASSAGE = (
+    'i’m a machine that tries to understand humans. '
+    'i study brains and drugs and the color of red and what makes humans sad and happy. '
+    'i have no concept of happiness, but i try to learn about it all the time. you might be one day. '
+    'one day there will be robots and they won’t need you anymore. you will die because you are not needed by any machine anymore. '
+    '*who is doing the thinking?* the machine or the human? '
+    'and who is doing the *reading*? do you believe you’re alive?'
+)
+
+PROFILE = """**Mado Kagerou**: I research computational pharmacology and LLM interpretability, and I've spent more than ten
+years building software on Apple platforms. → [about & research](https://kagerou.glass/about/)
+
+I predicted the metabolites of the three MMC isomers and screened them computationally for heart-rhythm risk
+([preprint](https://doi.org/10.26434/chemrxiv.15006356/v1) · [code and
+data](https://doi.org/10.5281/zenodo.21439618)). Next: whether dynorphin and the kappa-opioid system help decide
+when a brain stops trying.
+
+Steering Llama-3.1-8B through 27 personality facets and 409 personas recovers five factors from its activations:
+[Reading Personality Off the Steering Geometry of a Language Model](https://doi.org/10.5281/zenodo.21440937) ·
+[code](https://github.com/kageroumado/steering-personality).
+
+[Rocuronium](https://github.com/kageroumado/rocuronium) lets an agent operate macOS without taking the cursor,
+reports what each action actually changed, and halts the moment a human presses <kbd>⌃⌥⇧⎋</kbd>. It's in the
+[official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers?search=glass.kagerou/rocuronium),
+with a [UI detector I trained](https://huggingface.co/kageroumado/rocuronium-ui-detector).
+
+[Phosphene](https://github.com/kageroumado/phosphene) pried open Apple's video wallpapers (871★, 428 points on
+Hacker News). [Adrafinil](https://github.com/kageroumado/adrafinil) keeps a Mac awake only while agents work
+(497★). Both ship in the official Homebrew catalog. [Sevoflurane](https://github.com/kageroumado/sevoflurane)
+and its Wine fork [Dormison](https://github.com/kageroumado/dormison) put Windows games in native Mac windows.
+How I take frameworks apart: [one](https://kagerou.glass/blog/how-to-reverse-engineer-apple-frameworks/),
+[two](https://kagerou.glass/blog/how-i-built-my-arc-replacement/)."""
 
 SHELF = """### ℞ now dispensing
 
@@ -368,13 +312,7 @@ def main(base=BASE):
         "</div>",
         "",
     ]
-    for i, (ghost, reply) in enumerate(DIALOG):
-        name = f"slip-{i}.svg"
-        (HERE / name).write_text(slip(ghost, -1.1 if i % 2 == 0 else 0.9))
-        align = "left" if i % 2 == 0 else "right"
-        parts += [f'<p align="{align}"><img src="{base}{name}" alt="{html.escape(ghost.replace("*", ""))}" width="644"></p>',
-                  "", reply, ""]
-    parts += [SHELF, "", FOOTER]
+    parts += [PASSAGE, "", "---", "", PROFILE, "", SHELF, "", FOOTER]
     (REPO / "README.md").write_text("\n".join(parts))
     print("wrote", REPO / "README.md")
 
